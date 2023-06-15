@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "mixin": [
+    "better_resource_pack_sorting.mixins.json",
+    "better_resource_pack_sorting-common.mixins.json"
+  ],
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "better_resource_pack_sorting",
+    "version": "${version}",
+    "metadata": {
+      "name": "Better Resource Pack Sorting",
+      "description": "Upgrades the sorting used for resource packs",
+      "contributors": {
+        "MrMelon54": "Owner"
+      },
+      "contact": {
+        "homepage": "https://mrmelon54.com/minecraft/better-resource-pack-sorting",
+        "sources": "https://github.com/MrMelon54/better_resource_pack_sorting",
+        "issues": "https://github.com/MrMelon54/better_resource_pack_sorting/issues"
+      },
+      "license": "GPL-3.0-only",
+      "icon": "icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": [
+        "com.mrmelon54.BetterResourcePackSorting.quilt.BetterResourcePackSortingQuilt"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "version": "*"
+      },
+      {
+        "id": "quilt_base",
+        "version": "*"
+      },
+      {
+        "id": "minecraft",
+        "version": ">=1.20"
+      },
+      {
+        "id": "architectury",
+        "version": ">=9.0.0"
+      }
+    ]
+  },
+  "minecraft": {
+    "environment": "*"
+  }
+}

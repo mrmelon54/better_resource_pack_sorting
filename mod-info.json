@@ -1,0 +1,10 @@
+{
+  "modid": "better_resource_pack_sorting",
+  "modname": "Better Resource Pack Sorting",
+  "modclass": "BetterResourcePackSorting",
+  "modgroup": "com.mrmelon54.BetterResourcePackSorting",
+  "moddesc": "Upgrades the sorting used for resource packs",
+  "modwebsite": "https://mrmelon54.com/minecraft/better-resource-pack-sorting",
+  "modsource": "https://github.com/MrMelon54/better_resource_pack_sorting",
+  "modissue": "https://github.com/MrMelon54/better_resource_pack_sorting/issues"
+}
