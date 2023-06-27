@@ -1,2 +1,3 @@
 accessWidener   v2  named
 accessible class net/minecraft/client/gui/screens/packs/PackSelectionModel$EntryBase
+accessible class net/minecraft/client/gui/screens/packs/TransferableSelectionList$PackEntry

@@ -1,7 +1,7 @@
 package com.mrmelon54.BetterResourcePackSorting.mixin;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import com.mrmelon54.BetterResourcePackSorting.duck.PackResourceCustomNameGetter;
+import com.mrmelon54.BetterResourcePackSorting.BetterResourcePackSorting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ObjectSelectionList;
@@ -22,7 +22,7 @@ public abstract class MixinTransferableSelectionList_PackEntry extends ObjectSel
     private boolean hovered;
 
     @Shadow
-    protected static FormattedCharSequence cacheName(Minecraft minecraft, Component component) {
+    private static FormattedCharSequence cacheName(Minecraft minecraft, Component component) {
         return null;
     }
 
@@ -39,20 +39,17 @@ public abstract class MixinTransferableSelectionList_PackEntry extends ObjectSel
     @Shadow
     protected abstract boolean showHoverOverlay();
 
-    @Shadow
-    @Final
-    private TransferableSelectionList parent;
     private FormattedCharSequence customNameCache;
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void injectedInit(Minecraft minecraft, TransferableSelectionList transferableSelectionList, PackSelectionModel.Entry entry, CallbackInfo ci) {
-        Component component = pack instanceof PackResourceCustomNameGetter getter ? getter.getCustomName() : null;
+        Component component = BetterResourcePackSorting.mapPackIdDisplayName.get(pack.getId());
         customNameCache = cacheName(minecraft, component != null ? component : entry.getTitle());
     }
 
     @Inject(method = "render", at = @At("HEAD"))
     private void injectedRender(GuiGraphics guiGraphics, int i, int j, int k, int l, int m, int n, int o, boolean bl, float f, CallbackInfo ci) {
-        hovered = showHoverOverlay() && (minecraft.options.touchscreen().get() || bl || parent.getSelected() == ((TransferableSelectionList.PackEntry) (Object) this) && parent.isFocused());
+        hovered = showHoverOverlay() && (minecraft.options.touchscreen().get() || bl);
     }
 
     @Redirect(method = "render", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/packs/TransferableSelectionList$PackEntry;nameDisplayCache:Lnet/minecraft/util/FormattedCharSequence;"))

@@ -5,11 +5,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.server.packs.repository.Pack;
 
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Optional;
 
 public class BetterResourcePackSorting {
     public static final String MOD_ID = "better_resource_pack_sorting";
+    public static HashMap<String, Component> mapPackIdDisplayName = new HashMap<>();
 
     public static void init() {
     }
