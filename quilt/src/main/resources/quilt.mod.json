@@ -10,14 +10,14 @@
     "version": "${version}",
     "metadata": {
       "name": "Better Resource Pack Sorting",
-      "description": "Upgrades the sorting used for resource packs",
+      "description": "${description}",
       "contributors": {
         "MrMelon54": "Owner"
       },
       "contact": {
         "homepage": "https://mrmelon54.com/minecraft/better-resource-pack-sorting",
-        "sources": "https://github.com/MrMelon54/better_resource_pack_sorting",
-        "issues": "https://github.com/MrMelon54/better_resource_pack_sorting/issues"
+        "sources": "https://github.com/mrmelon54/better_resource_pack_sorting",
+        "issues": "https://github.com/mrmelon54/better_resource_pack_sorting/issues"
       },
       "license": "GPL-3.0-only",
       "icon": "icon.png"
@@ -39,11 +39,11 @@
       },
       {
         "id": "minecraft",
-        "version": "1.20.x"
+        "version": "${minecraft_version}"
       },
       {
         "id": "architectury",
-        "version": ">=9.0.0"
+        "version": ">=${architectury_version}"
       }
     ]
   },

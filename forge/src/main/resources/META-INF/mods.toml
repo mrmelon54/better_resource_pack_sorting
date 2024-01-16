@@ -1,6 +1,6 @@
 modLoader = "javafml"
-loaderVersion = "[46,)"
-issueTrackerURL = "https://github.com/MrMelon54/better_resource_pack_sorting/issues"
+loaderVersion = "*"
+issueTrackerURL = "https://github.com/mrmelon54/better_resource_pack_sorting/issues"
 license = "GPL-3.0-only"
 
 [[mods]]
@@ -8,26 +8,19 @@ modId = "better_resource_pack_sorting"
 version = "${version}"
 displayName = "Better Resource Pack Sorting"
 authors = "MrMelon54"
-description = "Upgrades the sorting used for resource packs"
+description = "${description}"
 logoFile = "/icon.png"
-
-[[dependencies.better_resource_pack_sorting]]
-modId = "forge"
-mandatory = true
-versionRange = "[46,)"
-ordering = "NONE"
-side = "BOTH"
 
 [[dependencies.better_resource_pack_sorting]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20,)"
+versionRange = "[${minecraft_version},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.better_resource_pack_sorting]]
 modId = "architectury"
 mandatory = true
-versionRange = "[9.0.0,)"
-ordering = "AFTER"
+versionRange = "[${architectury_version},)"
+ordering = "NONE"
 side = "BOTH"
