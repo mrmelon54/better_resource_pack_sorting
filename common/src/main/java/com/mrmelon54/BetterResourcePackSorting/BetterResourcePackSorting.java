@@ -21,7 +21,7 @@ public class BetterResourcePackSorting {
     }
 
     public static Component getPackDisplayName(Pack pack) {
-        return pack instanceof PackResourceCustomNameGetter getter ? getter.getCustomName() : pack.getTitle();
+        return pack instanceof PackResourceCustomNameGetter getter ? getter.better_resource_pack_sorting$getCustomName().orElse(Component.empty()) : pack.getTitle();
     }
 
     public static String getTextAsSortable(Component a) {

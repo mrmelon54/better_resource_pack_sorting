@@ -14,8 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(Pack.class)
 public class MixinPack {
     @Inject(method = "readPackInfo", at = @At(value = "RETURN", ordinal = 1), locals = LocalCapture.CAPTURE_FAILSOFT)
-    private static void injectedReadPackInfo(String string, Pack.ResourcesSupplier resourcesSupplier, CallbackInfoReturnable<Pack.Info> cir, PackResources packResources, PackMetadataSection packMetadataSection) {
-        if (packMetadataSection instanceof PackResourceCustomNameGetter getter)
-            BetterResourcePackSorting.mapPackIdDisplayName.put(string, getter.getCustomName());
+    private static void injectedReadPackInfo(String string, Pack.ResourcesSupplier resourcesSupplier, int i, CallbackInfoReturnable<Pack.Info> cir, PackResources packResources, PackMetadataSection packMetadataSection) {
+        //noinspection ConstantValue
+        if ((Object) packMetadataSection instanceof PackResourceCustomNameGetter getter)
+            BetterResourcePackSorting.mapPackIdDisplayName.put(string, getter.better_resource_pack_sorting$getCustomName().orElse(null));
     }
 }

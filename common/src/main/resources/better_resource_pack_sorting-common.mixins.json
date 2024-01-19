@@ -8,7 +8,6 @@
   "mixins": [
     "MixinPack",
     "MixinPackMetadataSection",
-    "MixinPackMetadataSectionSerializer",
     "MixinPackRepository",
     "MixinTransferableSelectionList_PackEntry"
   ],
