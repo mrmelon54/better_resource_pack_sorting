@@ -30,15 +30,12 @@ public class MixinPackMetadataSection implements PackResourceCustomNameGetter, P
         cir.setReturnValue(instance.group(ComponentSerialization.CODEC.fieldOf("description").forGetter(PackMetadataSection::description), ComponentSerialization.CODEC.optionalFieldOf("name").forGetter(packMetadataSection -> {
             //noinspection ConstantValue
             return (Object) packMetadataSection instanceof PackResourceCustomNameGetter duck ? duck.better_resource_pack_sorting$getCustomName() : Optional.empty();
-        }), Codec.INT.fieldOf("pack_format").forGetter(PackMetadataSection::packFormat), InclusiveRange.codec(Codec.INT).optionalFieldOf("supported_formats").forGetter(PackMetadataSection::supportedFormats)).apply(instance, new Function4<Component, Optional<Component>, Integer, Optional<InclusiveRange<Integer>>, PackMetadataSection>() {
-            @Override
-            public PackMetadataSection apply(Component component, Optional<Component> component2, Integer integer, Optional<InclusiveRange<Integer>> integerInclusiveRange) {
-                PackMetadataSection packMetadataSection = new PackMetadataSection(component, integer, integerInclusiveRange);
-                //noinspection ConstantValue
-                if ((Object) packMetadataSection instanceof PackResourceCustomNameSetter duck)
-                    duck.better_resource_pack_sorting$setCustomName(component2.orElse(null));
-                return packMetadataSection;
-            }
+        }), Codec.INT.fieldOf("pack_format").forGetter(PackMetadataSection::packFormat), InclusiveRange.codec(Codec.INT).optionalFieldOf("supported_formats").forGetter(PackMetadataSection::supportedFormats)).apply(instance, (component, component2, integer, integerInclusiveRange) -> {
+            PackMetadataSection packMetadataSection = new PackMetadataSection(component, integer, integerInclusiveRange);
+            //noinspection ConstantValue
+            if ((Object) packMetadataSection instanceof PackResourceCustomNameSetter duck)
+                duck.better_resource_pack_sorting$setCustomName(component2.orElse(null));
+            return packMetadataSection;
         }));
     }
 
