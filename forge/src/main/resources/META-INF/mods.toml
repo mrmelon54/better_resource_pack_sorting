@@ -14,7 +14,7 @@ logoFile = "/icon.png"
 [[dependencies.better_resource_pack_sorting]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[${minecraft_version},)"
+versionRange = "${minecraft_version}"
 ordering = "NONE"
 side = "BOTH"
 
